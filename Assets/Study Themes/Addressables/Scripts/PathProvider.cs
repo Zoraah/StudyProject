@@ -24,7 +24,8 @@ public static class PathProvider
         string[] potentialDirectories = new string[]
         {
             "/mnt/sdcard",
-            "/sdcard",
+            "/sdcard/",
+            "/storage/emulated/0",
             "/storage/sdcard0",
             "/storage/sdcard1"
         };

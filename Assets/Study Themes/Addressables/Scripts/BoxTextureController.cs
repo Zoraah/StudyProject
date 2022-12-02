@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -51,7 +52,9 @@ public class BoxTextureController : MonoBehaviour
         {
             //AsyncOperationHandle loadOperation = TextureList.Textures[index].LoadAssetAsync<Texture>();
             //AssetBundle assetBundle = TextureList.Textures[index];
-            _cubeMaterial.mainTexture = await Addressables.LoadAssetAsync<Texture>(TextureList.Textures[index]).Task;
+            Task<Texture> loadTask = TextureList.Textures[index].LoadAssetAsync<Texture>().Task;
+            await loadTask;
+            _cubeMaterial.mainTexture = loadTask.Result;
         }
     }
 }
