@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
-  m_DefaultGroup: 62b747ab9a48e03408c4a3ba4c6657bd
+  m_DefaultGroup: 8ca9d0f44c94ce54f80bfb6975438500
   m_CachedHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
@@ -43,6 +43,8 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: 22c868fb060cd1446893ce9c32a83f6a, type: 2}
   - {fileID: 11400000, guid: 07450b3f00098c94e8a8b6cc12f9877f, type: 2}
+  - {fileID: 11400000, guid: cecb5566cdb537d4283809d57c6ce2ec, type: 2}
+  - {fileID: 11400000, guid: 4fdb453f750301d409028d96e2960e80, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -68,6 +70,48 @@ MonoBehaviour:
         m_Value: D:/Unity Projects/StudyProject/Bundles
       - m_Id: 19eda522b70d3d948871b747a4dae884
         m_Value: '{PathProvider.ContentStoragePath}'
+      - m_Id: 35614134f6b02b544955fdf86f38827f
+        m_Value: D:/Unity Projects/StudyProject/Assets
+      - m_Id: 2d1c8247f36c9fa4ea03419983bcee77
+        m_Value: D:/Unity Projects/StudyProject/Assets
+      - m_Id: 0c7331c5ef7a9774295a4bfce91d1090
+        m_Value: D:/Unity Projects/StudyProject/Data/Textures
+      - m_Id: 20435652bd0c4e443b32e40a4ab5577f
+        m_Value: Data/Textures
+      - m_Id: 67b1a248a4356da4dbae20af40887254
+        m_Value: D:/Unity Projects/StudyProject/Data/Meshes
+      - m_Id: 3578bab17fe4ba240ac5848e23881ef4
+        m_Value: Data/Meshes
+    - m_InheritedParent: 
+      m_Id: cbc3ab58755042849899a9018a2d3afe
+      m_ProfileName: PCGameProfile
+      m_Values:
+      - m_Id: e34c0dd1dfbf51f4e88eb85d4c83f771
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 208ec004acb654a43a442fca9dabc38c
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: 6e4787a39086b4c4199ff3325f7e69f5
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 4b968d92f177bcf46b77228540c8d50f
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: 5e432ca101cdf5d49abcf6af46e2b07d
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 8c433599b9be0504c9f643e91f4f7417
+        m_Value: D:/Unity Projects/StudyProject/Bundles
+      - m_Id: 19eda522b70d3d948871b747a4dae884
+        m_Value: '{PathProvider.ContentStoragePath}'
+      - m_Id: 35614134f6b02b544955fdf86f38827f
+        m_Value: D:/Unity Projects/StudyProject/Data/Textures
+      - m_Id: 2d1c8247f36c9fa4ea03419983bcee77
+        m_Value: Data/Textures
+      - m_Id: 0c7331c5ef7a9774295a4bfce91d1090
+        m_Value: D:/Unity Projects/StudyProject/Data/Audios
+      - m_Id: 20435652bd0c4e443b32e40a4ab5577f
+        m_Value: Data/Audios
+      - m_Id: 67b1a248a4356da4dbae20af40887254
+        m_Value: D:/Unity Projects/StudyProject/Data/Meshes
+      - m_Id: 3578bab17fe4ba240ac5848e23881ef4
+        m_Value: Data/Meshes
     m_ProfileEntryNames:
     - m_Id: e34c0dd1dfbf51f4e88eb85d4c83f771
       m_Name: BuildTarget
@@ -90,6 +134,24 @@ MonoBehaviour:
     - m_Id: 19eda522b70d3d948871b747a4dae884
       m_Name: Local2.LoadPath
       m_InlineUsage: 0
+    - m_Id: 35614134f6b02b544955fdf86f38827f
+      m_Name: Textures.BuildPath
+      m_InlineUsage: 0
+    - m_Id: 2d1c8247f36c9fa4ea03419983bcee77
+      m_Name: Textures.LoadPath
+      m_InlineUsage: 0
+    - m_Id: 0c7331c5ef7a9774295a4bfce91d1090
+      m_Name: Audios.BuildPath
+      m_InlineUsage: 0
+    - m_Id: 20435652bd0c4e443b32e40a4ab5577f
+      m_Name: Audios.LoadPath
+      m_InlineUsage: 0
+    - m_Id: 67b1a248a4356da4dbae20af40887254
+      m_Name: Meshes.BuildPath
+      m_InlineUsage: 0
+    - m_Id: 3578bab17fe4ba240ac5848e23881ef4
+      m_Name: Meshes.LoadPath
+      m_InlineUsage: 0
     m_ProfileVersion: 1
   m_LabelTable:
     m_LabelNames:
@@ -107,7 +169,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 377060e3c0645714ba844225e6869067, type: 2}
   - {fileID: 11400000, guid: 82fdd5f2bcfff1644bbf8bf4068f6ae0, type: 2}
   - {fileID: 11400000, guid: a9b1ad90b69112b419a63558c64e530d, type: 2}
-  m_ActiveProfileId: d8f08f4a32bd08a4fa97337ce1126877
+  m_ActiveProfileId: cbc3ab58755042849899a9018a2d3afe
   m_HostingServicesManager:
     m_HostingServiceInfos: []
     m_Settings: {fileID: 11400000}
