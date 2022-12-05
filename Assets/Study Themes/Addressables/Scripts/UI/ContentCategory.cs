@@ -40,14 +40,14 @@ namespace StudyProject.Addressales.Content
             _textMeshElement.text = _categoryName;
         }
 
-        private void AddListeners()
+        public void AddListeners()
         {
             _previousAssetButton.onClick.AddListener(EnablePreviousContent);
             _resetAssetButton.onClick.AddListener(ResetContent);
             _nextAssetButton.onClick.AddListener(EnableNextContent);
         }
 
-        private void RemoveListeners()
+        public void RemoveListeners()
         {
             _previousAssetButton.onClick.RemoveListener(EnablePreviousContent);
             _resetAssetButton.onClick.RemoveListener(ResetContent);

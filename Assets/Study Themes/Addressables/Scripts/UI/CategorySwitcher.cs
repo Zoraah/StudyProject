@@ -10,27 +10,30 @@ namespace StudyProject.Addressales.Content
 
         [SerializeField] private ContentCategory[] _contentCategories = default;
 
-        private int _currentCategory = default;
+        [SerializeField] private int _currentCategory = default;
 
-        private Material _contentGameObjectMaterial = default;
-        private MeshFilter _contentGameObjectMeshFilter = default;
-        private AudioSource _contentGameObjectAudioSource = default;
+        [SerializeField] private Material _contentGameObjectMaterial = default;
+        [SerializeField] private MeshFilter _contentGameObjectMeshFilter = default;
+        [SerializeField] private AudioSource _contentGameObjectAudioSource = default;
 
         private void Start()
         {
             GetComponents();
+            ClearAssets();
             EnableFirstCategory();
         }
 
         public void EnableNextCategory()
         {
+            Debug.Log(_contentCategories.Length);
+
             if(_currentCategory == _contentCategories.Length - 1)
             {
                 SetActiveCategory(0);
             }
             else
             {
-                SetActiveCategory(_currentCategory++);
+                SetActiveCategory(_currentCategory + 1);
             }
         }
 
@@ -42,7 +45,7 @@ namespace StudyProject.Addressales.Content
             }
             else
             {
-                SetActiveCategory(_currentCategory--);
+                SetActiveCategory(_currentCategory - 1);
             }
         }
 
@@ -62,6 +65,15 @@ namespace StudyProject.Addressales.Content
             _contentGameObjectAudioSource.Play();
         }
 
+        private void ClearAssets()
+		{
+            _contentGameObjectMaterial.mainTexture = null;
+            _contentGameObjectAudioSource.clip = null;
+            GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            _contentGameObjectMeshFilter.mesh = go.GetComponent<MeshFilter>().mesh;
+            Destroy(go);
+		}
+
         private void EnableFirstCategory()
         {
             _currentCategory = 0;
@@ -77,9 +89,7 @@ namespace StudyProject.Addressales.Content
 
         private void GetComponents()
         {
-            _contentGameObjectMaterial = _contentGameObject.GetComponent<Material>();
             _contentGameObjectMeshFilter = _contentGameObject.GetComponent<MeshFilter>();
-            _contentGameObjectAudioSource = _contentGameObject.GetComponent<AudioSource>();
         }
     }
 }

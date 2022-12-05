@@ -29,13 +29,13 @@ namespace StudyProject.Addressales.Content
             }
         }
 
-        private void DoLoadOperation(int assetIndex)
+        private async void DoLoadOperation(int assetIndex)
         {
-            Task<AudioClip> loadMeshTask = LoadAsset(assetIndex);
+            AudioClip audioClip = await LoadAsset(assetIndex);
 
-            if(loadMeshTask.Result != null)
+            if(audioClip != null)
             {
-                _categorySwitcher.SetContentGameObjectAudioClip(loadMeshTask.Result);
+                _categorySwitcher.SetContentGameObjectAudioClip(audioClip);
                 _currentCategory = assetIndex;
             }
         }
@@ -57,7 +57,10 @@ namespace StudyProject.Addressales.Content
 
         private void ReleaseAsset(int assetIndex)
         {
-            _audioClipAssetReferences[assetIndex].ReleaseAsset();
+            if (_audioClipAssetReferences[assetIndex].Asset != null)
+            {
+                _audioClipAssetReferences[assetIndex].ReleaseAsset();
+            }
         }
     }
 }
