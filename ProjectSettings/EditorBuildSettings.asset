@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Study Themes/Addressables/Scenes/AddressablesTestScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Study Themes/Netcode/Scenes/NetcodeClientServerScene.unity
+    guid: f238b953cdad5e946adcc27eb3c3a64b
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: cdfe5c16ac56879429027a5d2b5877e2, type: 2}
