@@ -18,7 +18,7 @@ namespace StudyProject.NetcodeLearning
         {
             _updateCoroutine = StartCoroutine(UpdateInformationByTick(_updateTick));
         }
-
+            
         private void OnDisable()
         {
             _updateCoroutine.KillCoroutine();

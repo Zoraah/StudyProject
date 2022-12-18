@@ -7,24 +7,24 @@ namespace StudyProject.NetcodeLearning
 {
     public class NetworkInitializator : MonoBehaviour
     {
+        private void Start()
+        {
+            AddListeners();
+        }
+
         public void StartClient()
         {
             NetworkManager.Singleton.StartClient();
-
-            if(NetworkManager.Singleton.IsConnectedClient)
-            {
-                Debug.Log("Connected as client successful");
-            }
-            else
-            {
-                Debug.Log("Connected failed");
-            }
         }
 
         public void StartHost()
         {
-            NetworkManager.Singleton.OnServerStarted += OnServerStarted;
             NetworkManager.Singleton.StartHost();
+        }
+
+        private void AddListeners()
+        {
+            NetworkManager.Singleton.OnServerStarted += OnServerStarted;
         }
 
         private void OnServerStarted()
