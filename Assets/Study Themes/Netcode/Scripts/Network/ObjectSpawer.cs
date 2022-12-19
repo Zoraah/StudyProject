@@ -63,8 +63,16 @@ namespace StudyProject.NetcodeLearning
                 if(IsOwner)
                 {
                     _indentifier.Value = Random.Range(0,50);
+                    //ShowPlayerIndifierServerRpc((int)NetworkManager.Singleton.LocalClientId, _indentifier.Value);
                 }
             }
+        }
+
+
+        [ServerRpc]
+        private void ShowPlayerIndifierServerRpc(int playerID, int indentifier)
+        {
+            Debug.Log($"Player ID: {playerID}, Indifier: {indentifier}");
         }
     }
 }

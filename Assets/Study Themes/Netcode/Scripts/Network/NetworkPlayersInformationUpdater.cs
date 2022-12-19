@@ -18,10 +18,16 @@ namespace StudyProject.NetcodeLearning
         {
             _updateCoroutine = StartCoroutine(UpdateInformationByTick(_updateTick));
         }
-            
-        private void OnDisable()
+
+		private void OnApplicationQuit()
+		{
+            _updateCoroutine.KillCoroutine(this);
+        }
+
+		public override void OnDestroy()
         {
-            _updateCoroutine.KillCoroutine();
+            base.OnDestroy();
+            _updateCoroutine.KillCoroutine(this);
         }
 
         private IEnumerator UpdateInformationByTick(float tick)

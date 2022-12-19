@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using UnityEngine.SceneManagement;
 
-public class ClientLobbyManager : MonoBehaviour
+namespace StudyProject.NetcodeLearning
 {
-    [ClientRpc]
-    public void ConnectToLobbyClientRpc()
+    public class ClientLobbyManager : NetworkBehaviour
     {
-
+        [ClientRpc]
+        public void ChangeSceneForPlayersClientRpc()
+        {
+            SceneManager.LoadScene("WaitRoom");
+        }
     }
 }

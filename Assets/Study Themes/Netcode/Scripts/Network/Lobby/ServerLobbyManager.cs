@@ -8,16 +8,26 @@ namespace StudyProject.NetcodeLearning
 {
     public class ServerLobbyManager : NetworkBehaviour
     {
-
         [SerializeField] private ConnectedPlayersLobby _connectedPlayersLobby = default;
 
-        private List<PlayerData> _connectedPlayers = new List<PlayerData>();
-
-        [ServerRpc]
+        [ServerRpc(RequireOwnership = false, Delivery = RpcDelivery.Reliable)]
         public void AddPlayerToLobbyServerRpc(PlayerData playerData)
         {
-            _connectedPlayers.Add(playerData);
+            Debug.Log($"Player ID: {playerData.ID}, nickname: {playerData.Nickname}");
+            _connectedPlayersLobby.AddPlayerToLobby(playerData);
         }
+
+        [ServerRpc(RequireOwnership = false, Delivery = RpcDelivery.Reliable)]
+        public void RemovePlayerToLobbyServerRpc(PlayerData playerData)
+        {
+            Debug.Log($"Player ID: {playerData.ID}, nickname: {playerData.Nickname}");
+            _connectedPlayersLobby.RemovePlayerFromLobby(playerData);
+        }
+
+        public void SetPlayersLobbyComponent()
+		{
+
+		}
     }
 
     public struct PlayerData : INetworkSerializable

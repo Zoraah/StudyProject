@@ -6,11 +6,10 @@ namespace StudyProject.Extensions
 {
     public static class CoroutineExtensions
     {
-        public static void KillCoroutine(this Coroutine coroutine)
+        public static void KillCoroutine(this Coroutine coroutine, MonoBehaviour monoBehaviour)
         {
             if(coroutine != null)
             {
-                MonoBehaviour monoBehaviour = new MonoBehaviour();
                 monoBehaviour.StopCoroutine(coroutine);
                 coroutine = null;
             }
