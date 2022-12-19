@@ -38,7 +38,7 @@ namespace StudyProject.NetcodeLearning
 
 		public void DisconnectFromLobby()
 		{
-			_serverLobbyManager.RemovePlayerToLobbyServerRpc(new PlayerData { ID = (int)NetworkManager.Singleton.LocalClientId, Nickname = "Vova" });
+			_serverLobbyManager.RemovePlayerToLobbyServerRpc(new PlayerData { ID = (int)NetworkManager.Singleton.LocalClientId, Nickname = PlayerPrefs.GetString(PlayerPrefsKeys.NAME_KEY) });
 			NetworkManager.Singleton.Shutdown();
 		}
 
@@ -60,7 +60,7 @@ namespace StudyProject.NetcodeLearning
 
 		private void AddPlayerToLobby()
 		{
-			PlayerData playerData = new PlayerData { ID = (int)NetworkManager.Singleton.LocalClientId, Nickname = "Vova" };
+			PlayerData playerData = new PlayerData { ID = (int)NetworkManager.Singleton.LocalClientId, Nickname = PlayerPrefs.GetString(PlayerPrefsKeys.NAME_KEY) };
 
 			_serverLobbyManager.AddPlayerToLobbyServerRpc(playerData);
 		}

@@ -23,11 +23,6 @@ namespace StudyProject.NetcodeLearning
             Debug.Log($"Player ID: {playerData.ID}, nickname: {playerData.Nickname}");
             _connectedPlayersLobby.RemovePlayerFromLobby(playerData);
         }
-
-        public void SetPlayersLobbyComponent()
-		{
-
-		}
     }
 
     public struct PlayerData : INetworkSerializable
