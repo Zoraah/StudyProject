@@ -22,11 +22,12 @@ namespace StudyProject.NetcodeLearning
 
         public void RemovePlayerFromLobby(PlayerData playerData)
         {
-            foreach(var playerElement in _connectedPlayersElementList)
+            for (int i = 0; i < _connectedPlayersElementList.Count; i++)
             {
-                if(playerElement.GetPlayerData().ID == playerData.ID)
+                if (_connectedPlayersElementList[i].GetPlayerData().ID == playerData.ID)
                 {
-                    _connectedPlayersElementList.Remove(playerElement);
+                    ConnectedPlayerElement playerElement = _connectedPlayersElementList[i];
+                    _connectedPlayersElementList.Remove(_connectedPlayersElementList[i]);
                     Destroy(playerElement.gameObject);
                 }
             }

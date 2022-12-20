@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Study Themes/Netcode/Scenes/Lobby/MenuScene.unity
     guid: 78191c78275ea0542a5c2569165983c8
   - enabled: 1
-    path: Assets/Study Themes/Netcode/Scenes/Lobby/LobbyRoom.unity
+    path: Assets/Study Themes/Netcode/Scenes/Lobby/LobbyScene.unity
     guid: 2dfd3976ce8f7d544be4b88a6c565200
   - enabled: 1
-    path: Assets/Study Themes/Netcode/Scenes/Lobby/WaitRoom.unity
-    guid: 48bd7d6835ba97948b87e6ee093fef97
+    path: Assets/Study Themes/Netcode/Scenes/Lobby/GameScene.unity
+    guid: e08585b2eb539904cb732ce7e82874c0
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: cdfe5c16ac56879429027a5d2b5877e2, type: 2}
