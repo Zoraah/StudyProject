@@ -10,7 +10,7 @@ namespace StudyProject.CarDriving
 
         [SerializeField] private TransmissionGear[] _transmissionGears = default;
         private TransmissionGear _currentTransmissionGear = default;
-        private byte _currentGearIndex = 0;
+        [SerializeField] private byte _currentGearIndex = 0;
         
         private float _currentIncreaseSpeedValue = 0;
         private float _wheelsTorque = 0;
@@ -28,7 +28,7 @@ namespace StudyProject.CarDriving
 
         public void IncreaseGear()
         {
-            if(_currentGearIndex < _transmissionGears.Length)
+            if(_currentGearIndex < _transmissionGears.Length - 1)
             {
                 _currentGearIndex++;
                 _currentTransmissionGear = _transmissionGears[_currentGearIndex];
@@ -37,30 +37,28 @@ namespace StudyProject.CarDriving
 
         public void DecreaseGear()
         {
-            if(_currentGearIndex > 1)
+            if(_currentGearIndex > 0)
             {
                 _currentGearIndex--;
                 _currentTransmissionGear = _transmissionGears[_currentGearIndex];
             }
         }
 
-        public float GetCurrentIncreseValue(float speed)
+        public float GetCurrentGearMotorPower(float speed, float horsePower)
         {
             float speedDiapazone = _currentTransmissionGear.MaxSpeed - _currentTransmissionGear.MinSpeed;
             Debug.Log("Speed diapazone: " + speedDiapazone);
             float speedInSpeedDiapazone = speed - _currentTransmissionGear.MinSpeed;
             Debug.Log("Speed in speed diapazone:" + speedInSpeedDiapazone);
-            float forceSpeedValue = (speedInSpeedDiapazone * 100f) / speedDiapazone / 100f;
+            float rpm = (speedInSpeedDiapazone * 100f) / speedDiapazone / 100f;
 
-            Debug.Log("Force speed value: " + forceSpeedValue);
+            Debug.Log("RPM: " + (rpm * 9000));
 
-            float rpm = _currentTransmissionGear.RPMCurve.Evaluate(forceSpeedValue);
+            float motorPowerOnGear = _currentTransmissionGear.RPMCurve.Evaluate(rpm);
 
-            Debug.Log("RPM: " + rpm);
+            Debug.Log("Motor power on gear: " + motorPowerOnGear * horsePower);
 
-            _currentIncreaseSpeedValue = rpm;
-
-            return _currentIncreaseSpeedValue;
+            return motorPowerOnGear * horsePower;
         }
     }
 }

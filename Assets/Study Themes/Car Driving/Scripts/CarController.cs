@@ -7,36 +7,38 @@ namespace StudyProject.CarDriving
     public class CarController : MonoBehaviour
     {
         [SerializeField] private Engine _engine = default;
-        [SerializeField] private SteeringWheel _steeringWheel = default;
+        [SerializeField] private Transmission _transmission = default;
 
-        private Vector2 _inputValues = default;
+        [SerializeField] private Vector2 _inputValues = default;
 
         private void Update()
         {
             ReadInput();
             ControllEngine();
+            ControllTransmission();
         }
 
         private void ReadInput()
         {
-            _inputValues.x = Input.GetAxis("Horizontal");
-            _inputValues.y = Input.GetAxis("Vertical");
+            _inputValues.x = Input.GetAxisRaw("Horizontal");
+            _inputValues.y = Input.GetAxisRaw("Vertical");
         }
 
         private void ControllEngine()
         {
-            if(_inputValues.y > 0)
-            {
-                _engine.Gas();
-            }
-            else if(_inputValues.y < 0)
-            {
-                _engine.Break(true);
-            }
-            else
-            {
-                _engine.Break(false);
-            }
+            _engine.Gas(_inputValues.y);
+        }
+
+        private void ControllTransmission()
+		{
+            if(Input.GetKeyDown(KeyCode.LeftShift))
+			{
+                _transmission.IncreaseGear();
+			}
+            if(Input.GetKeyDown(KeyCode.LeftControl))
+			{
+                _transmission.DecreaseGear();
+			}
         }
     }
 }

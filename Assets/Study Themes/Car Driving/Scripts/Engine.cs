@@ -11,13 +11,13 @@ namespace StudyProject.CarDriving
         [SerializeField] private Transmission _transmission = default;
         [SerializeField] private WheelDrive _wheelDrive = default;
 
-        [SerializeField] private int _HP = default;
+        [SerializeField] private float _HP = default;
         [SerializeField] private float _increaseSpeedValue = default;
         
         [SerializeField] private string _status = default;
         [SerializeField] private float _speed = default;
         
-        public int HP => _HP;
+        public float HP => _HP;
 
         private void LateUpdate()
         {
@@ -26,13 +26,13 @@ namespace StudyProject.CarDriving
             Debug.Log("Speed: " + _speed);
         }
 
-        public void Gas()
+        public void Gas(float yAxis)
         {
-
-            float currentIncreaseSpeedValue = _increaseSpeedValue * _transmission.GetCurrentIncreseValue(_speed);
-
-            if(_speed < _transmission.CurrentTransmissionGear.MaxSpeed)
+            bool gasPressed = yAxis > 0.1f;
+            
+            if(gasPressed)
             {
+                float currentIncreaseSpeedValue = _transmission.GetCurrentGearMotorPower(_speed, _HP);
                 _wheelDrive.SetWheelTorque(currentIncreaseSpeedValue);
             }
             else
